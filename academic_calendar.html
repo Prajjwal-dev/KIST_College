@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIST College</title>
+    <title>Academic Calendar - KIST College</title>
     <link rel="stylesheet" href="index_style.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <!-- Logo Moved to the Extreme Left -->
+        <!-- Logo -->
         <div class="logo">
-            <img src="KIST College and SS.jpeg" alt="Couldn't load image!!" class="logo-img">
+            <img src="KIST-Logo.jpeg" alt="College Logo" class="logo-img">
             <span class="college-name">KIST College and SS</span>
         </div>
         <!-- Hamburger Menu Icon -->
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html" class="nav-button">Home</a></li>
-            <li><a href="about_us.html" class="nav-button">About Us</a></li>
+            <li><a href="about.html" class="nav-button">About Us</a></li>
             <li><a href="admissions.html" class="nav-button">Admissions</a></li>
             <li><a href="programs.html" class="nav-button">Programs</a></li>
             <li><a href="faculty.html" class="nav-button">Faculty</a></li>
-            <li><a href="academic_calendar.html" class="nav-button">Academic Calendar</a></li>
+            <li><a href="academic-calendar.html" class="nav-button">Academic Calendar</a></li>
             <li><a href="contact.html" class="nav-button">Contact Us</a></li>
         </ul>
     </nav>
 
-    <!-- Home Content -->
-    <header class="hero-section">
-        <h1>Welcome to Our College</h1>
-        <p>Empowering students for a brighter future</p>
-        <a href="admissions.html" class="cta-button">Apply Now</a>
-    </header>
+    <!-- Academic Calendar Content -->
+    <section class="content-section">
+        <h1 class="introduction-title">Academic Calendar</h1>
+        <div class="academic-calendar-box">
+            <p>Download the Academic Calendar:</p>
+            <a href="academic-calendar.pdf" download class="download-button">Download PDF</a>
+        </div>
+    </section>
 
     <script src="scripts.js"></script>
 </body>

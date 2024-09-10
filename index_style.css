@@ -1,39 +1,167 @@
 /* Global Styles */
+/* Global Styles */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     color: #333;
 }
 
+/* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #0056b3;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #0056b3, #0077e6);
     color: white;
+    position: relative;
+}
+
+/* Centered Title Styling for Admissions Page */
+.admission-title {
+    text-align: center; /* Center the text */
+    margin: 20px auto; /* Add margin and auto-centers */
+    font-size: 2.5rem; /* Increase the font size */
+    color: #0056b3; /* Blue color for title */
+    text-transform: uppercase; /* Make the title uppercase */
+    letter-spacing: 2px; /* Add spacing between letters */
+    border-bottom: 3px solid #ff6b00; /* Add a bottom border for emphasis */
+    display: block; /* Make the title a block-level element */
+    width: fit-content; /* Set width to fit the content */
+}
+
+.admission-content {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admission-heading {
+    color: #0077e6; /* Blue color for headings */
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.admission-subheading {
+    color: #0056b3; /* Darker blue for subheadings */
+    margin-top: 15px;
+    font-size: 1.25rem;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.college-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
 }
 
 .nav-links {
     list-style: none;
-    display: flex;
+    display: none; /* Hidden by default */
     gap: 20px;
+    transition: all 0.5s ease;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    background-color: #0056b3;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links.show {
+    display: flex; /* Show links when the menu is toggled */
 }
 
 .nav-links a {
-    color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    overflow: hidden;
+    transition: color 0.4s;
 }
 
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a::before,
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b00, #ffbc00);
+    left: 0;
+    transition: all 0.4s;
+}
+
+.nav-links a::before {
+    top: 0;
+    transform: translateX(-100%);
+}
+
+.nav-links a::after {
+    bottom: 0;
+    transform: translateX(100%);
+}
+
+.nav-links a:hover::before {
+    transform: translateX(0);
+}
+
+.nav-links a:hover::after {
+    transform: translateX(0);
+}
+
+/* Hamburger Menu Icon */
 .menu-icon {
-    display: none;
+    font-size: 1.8rem;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    right: 20px;
+    top: 15px;
 }
 
+.menu-icon:hover {
+    transform: rotate(90deg);
+}
+
+.menu-icon:hover + .nav-links,
+.nav-links:hover {
+    display: flex; /* Show links when hovering over hamburger menu */
+}
+
+/* Hero Section with Animation */
 .hero-section {
-    height: 80vh;
-    background-image: url('college.jpg');
+    height: 92vh;
+    background-image: url('kist_hero.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -42,6 +170,12 @@ body {
     align-items: center;
     text-align: center;
     color: white;
+    animation: slideBackground 10s linear infinite;
+}
+
+@keyframes slideBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
 }
 
 .cta-button {
@@ -53,13 +187,87 @@ body {
     margin-top: 20px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-    }
-    .menu-icon {
-        display: block;
+/* Center align logo and text for all screen sizes */
+@media (min-width: 769px) {
+    .logo {
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
+
+/* About Us Page Styling */
+.introduction-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5rem;
+    color: #0056b3;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 3px solid #ff6b00;
+    display: inline-block;
+}
+
+/* Academic Calendar Page */
+.academic-calendar-box {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #0077e6;
+    border-radius: 8px;
+    text-align: center;
+    width: 50%;
+}
+
+.download-button {
+    background-color: #ff6b00;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Centered Title Styling */
+.about-title {
+    text-align: center; /* Center the text */
+    margin: 20px auto; /* Center the title block and add margin */
+    font-size: 2.5rem; /* Increase the font size */
+    color: #0056b3; /* Blue color for title */
+    text-transform: uppercase; /* Capitalize the title */
+    letter-spacing: 2px; /* Add some spacing between letters */
+    border-bottom: 3px solid #ff6b00; /* Decorative bottom border */
+    display: block; /* Make it a block-level element for auto centering */
+    width: fit-content; /* Make the title width just fit the content */
+}
+
+/* Image Styling Before Content */
+.about-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.intro-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Centered Content Styling */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+

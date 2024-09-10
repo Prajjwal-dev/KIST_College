@@ -3,19 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - College Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>About Us - KIST College</title>
+    <link rel="stylesheet" href="index_style.css">
 </head>
 <body>
-    <!-- Include the same navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <!-- Same navbar content -->
+        <!-- Logo -->
+        <div class="logo">
+            <img src="KIST College and SS.jpeg" alt="College Logo" class="logo-img">
+            <span class="college-name">KIST College and SS</span>
+        </div>
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html" class="nav-button">Home</a></li>
+            <li><a href="about.html" class="nav-button">About Us</a></li>
+            <li><a href="admissions.html" class="nav-button">Admissions</a></li>
+            <li><a href="programs.html" class="nav-button">Programs</a></li>
+            <li><a href="faculty.html" class="nav-button">Faculty</a></li>
+            <li><a href="academic-calendar.html" class="nav-button">Academic Calendar</a></li>
+            <li><a href="contact.html" class="nav-button">Contact Us</a></li>
+        </ul>
     </nav>
 
     <!-- About Us Content -->
     <section class="content-section">
-        <h1>About Us</h1>
-        <p>Information about the college, mission, and vision...</p>
+        <!-- Centered Title -->
+        <h1 class="about-title">About Us</h1>
+
+        <!-- Image Before Content -->
+        <div class="about-image">
+            <img src="kist_hero_section.jpeg" alt="About Us Photo" class="intro-image">
+        </div>
+
+        <!-- Centered Content -->
+        <div class="about-content">
+            <h2 class="introduction-title">Introduction</h2>
+            <p>
+                Established in 1995, KIST is now a top +2 college in Nepal that offers high standard NEB + 2 Science & Management courses, a range of top quality Bachelor’s degrees – BBA, BIM, BIT, BBS & BSc Microbiology – followed by excellent Master’s degrees – MBS, MSc Microbiology & MIT.
+            </p>
+            <p>
+                It is well-known to most educators and students along with their families that our educational delivery, at the different levels we cover, is as good as the best anywhere! This is due to our dedicated, expert faculty and their unique learning-teaching. Also, we believe in student intake interlinked to academic excellence. Our ideal education yields top results in key examinations.
+            </p>
+            <p>
+                KIST incontestably has a fine academic atmosphere with a pragmatic, student-centered, caring approach. First-rate amenities on campus plus well-managed transport facilities attract the best students. Also, a cafeteria, and separate boys' and girls' hostels are available at this centrally-located campus. Regular, quick public transport is always available a few hundred yards away.
+            </p>
+            <p>
+                We provide superb facilities such as a modern, well-stocked library with a useful adjunct, an e-library, serving all learning needs, and probably the best well-equipped laboratories. Notably, this institution has a purpose-built, well-engineered, and safe infrastructure so that everything on the campus reinforces student education and their overall development.
+            </p>
+            <p>
+                The College, although situated downtown, exudes peace and positivity with its pleasant and peaceful premises next to the salubrious large pond Kamalpokhari. It has a spacious property most suitable for both indoor and outdoor activities. Ample opportunities for extracurricular or co-curricular activities or events are available so that students have a happy campus life.
+            </p>
+            <p>
+                Above all, remarkable is the College ethos for all it does to transform students at all levels: +2, Bachelor's, and Master's. We ensure these goals through pastoral care, academic & career counseling, and the nurturing of academic skills alongside life-skills. KIST is a highly successful motivator for furthering your educational or career objectives and life goals.
+            </p>
+        </div>
     </section>
 
     <script src="scripts.js"></script>

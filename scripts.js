@@ -1,5 +1,4 @@
-// Toggle menu for mobile view
 function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('show'); // Toggle 'show' class to display the menu
 }
