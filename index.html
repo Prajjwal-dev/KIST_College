@@ -7,33 +7,99 @@
     <link rel="stylesheet" href="index_style.css">
 </head>
 <body>
+    <!-- Popup Modal -->
+    <div id="popup-modal" class="popup-modal">
+        <div class="popup-content">
+            <span class="close-button" id="close-popup">&times;</span>
+            <p>To access the features of this website, use the menu(☰). Visit the Contact page for reaching us and please provide your feedback on the Contact page.</p>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <!-- Logo Moved to the Extreme Left -->
+    <nav class="navbar" id="navbar">
         <div class="logo">
-            <img src="KIST College and SS.jpeg" alt="Couldn't load image!!" class="logo-img">
+            <img src="KIST College and SS.jpeg" alt="College Logo" class="logo-img">
             <span class="college-name">KIST College and SS</span>
         </div>
-        <!-- Hamburger Menu Icon -->
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu-icon" onclick="toggleMenu()">MENU ☰</div>
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html" class="nav-button">Home</a></li>
             <li><a href="about_us.html" class="nav-button">About Us</a></li>
             <li><a href="admissions.html" class="nav-button">Admissions</a></li>
             <li><a href="programs.html" class="nav-button">Programs</a></li>
-            <li><a href="faculty.html" class="nav-button">Faculty</a></li>
             <li><a href="academic_calendar.html" class="nav-button">Academic Calendar</a></li>
             <li><a href="contact.html" class="nav-button">Contact Us</a></li>
         </ul>
     </nav>
 
-    <!-- Home Content -->
-    <header class="hero-section">
-        <h1>Welcome to Our College</h1>
-        <p>Empowering students for a brighter future</p>
-        <a href="admissions.html" class="cta-button">Apply Now</a>
-    </header>
+<!-- Hero Section with Background Slideshow -->
+<header class="hero-section">
+    <div class="hero-slideshow"></div> <!-- Background Slideshow -->
+</header>
 
+<!-- Hero Text Box Moved Below Hero Section -->
+<div class="hero-text-box">
+    <h1>Welcome to Our College</h1>
+    <p>Empowering students for a brighter future</p>
+    <a href="admissions.html" class="cta-button">Apply Now</a>
+</div>
+
+    
+
+    <!-- Additional Sections -->
+     <!-- Statistics Section Below Hero -->
+<section class="stats-section scroll-animate">
+    <div class="stats-content">
+        <div class="stats-image">
+            <img src="kist.jpeg" alt="Campus Image">
+        </div>
+        <div class="stat-boxes">
+            <div class="stat-box">
+                <h2>16000+</h2>
+                <p>Alumni Worldwide</p>
+            </div>
+            <div class="stat-box">
+                <h2>9</h2>
+                <p>Programmes</p>
+                <p>+2 / Bachelor’s / Master’s</p>
+            </div>
+            <div class="stat-box">
+                <h2>29+</h2>
+                <p>Years of Excellence</p>
+                <p>A reputed educational institution for over two decades</p>
+            </div>
+            <div class="stat-box">
+                <h2>70+</h2>
+                <p>Districts of Nepal</p>
+                <p>Represented among our students</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Educating You Since 1995 Section -->
+<section class="educate-section scroll-animate">
+    <h2>Educating you since 1995!</h2>
+    <p>
+        Established in 1995, KIST is now a top +2 college in Nepal that offers high-standard NEB + 2 Science & Management courses, a range of top-quality Bachelor’s degrees – BBA, BIM, BIT, BBS & BSc Microbiology – followed by excellent Master’s degrees – MBS, MSc Microbiology & MIT.
+    </p>
+</section>
+
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="social-links">
+            <a href=https://www.facebook.com/KIST.Kamalpokhari/" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+            <a href="https://x.com/kist_ss" target="_blank"><img src="twitter_x.jpg" alt="X"></a>
+            <a href="https://www.instagram.com/kist.college.ss/" target="_blank"><img src="instagram.jpeg" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@KISTCollegeSS" target="_blank"><img src="youtube.png" alt="Youtube"></a>
+            <a href="https://www.linkedin.com/company/75415568/admin/" target="_blank"><img src="linked_in.png" alt="linked_in"></a>
+        </div>
+        <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <p>Credits: Prajjwal Mahrajan</p>
+        </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>

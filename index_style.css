@@ -1,5 +1,4 @@
 /* Global Styles */
-/* Global Styles */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -15,6 +14,24 @@ body {
     background: linear-gradient(90deg, #0056b3, #0077e6);
     color: white;
     position: relative;
+    z-index: 1000; /* Ensure navbar is above other elements */
+}
+
+.navbar.rotate {
+    transform: rotate(360deg); /* Full rotation */
+}
+
+.navbar:hover .nav-links {
+    display: flex; /* Show links on hover */
+}
+
+/* Show Menu on Hover */
+.navbar:hover .nav-links {
+    display: flex; /* Show the links when hovering over the navbar */
+}
+
+.nav-links:hover {
+    display: flex; /* Keep the links visible when hovering over the nav-links */
 }
 
 /* Centered Title Styling for Admissions Page */
@@ -54,7 +71,7 @@ body {
     font-size: 1.25rem;
 }
 
-
+/* Logo Styling */
 .logo {
     display: flex;
     align-items: center;
@@ -73,11 +90,11 @@ body {
     margin-left: 10px;
 }
 
+/* Nav Links Styling */
 .nav-links {
     list-style: none;
     display: none; /* Hidden by default */
     gap: 20px;
-    transition: all 0.5s ease;
     margin: 0;
     padding: 0;
     flex-direction: column;
@@ -88,6 +105,8 @@ body {
     width: 200px;
     padding: 10px 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Ensure menu is above other content */
+    transition: all 0.5s ease; /* Smooth transition for visibility */
 }
 
 .nav-links.show {
@@ -99,15 +118,16 @@ body {
     font-weight: bold;
     font-size: 1rem;
     position: relative;
-    display: inline-block;
+    display: block; /* Make it block-level for clickable area */
     padding: 10px 15px;
     color: white;
     overflow: hidden;
-    transition: color 0.4s;
+    transition: color 0.4s, transform 0.3s; /* Add transition for hover effects */
 }
 
 .nav-links a:hover {
-    color: #fff;
+    color: #ffbc00; /* Change color on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 .nav-links a::before,
@@ -147,10 +167,11 @@ body {
     position: absolute;
     right: 20px;
     top: 15px;
+    z-index: 1001; /* Ensure menu icon is above the menu */
 }
 
 .menu-icon:hover {
-    transform: rotate(90deg);
+    transform: rotate(90deg); /* Optional rotation effect on hover */
 }
 
 .menu-icon:hover + .nav-links,
@@ -158,25 +179,53 @@ body {
     display: flex; /* Show links when hovering over hamburger menu */
 }
 
-/* Hero Section with Animation */
+/* Hero Section with Background Slideshow Animation */
 .hero-section {
     height: 92vh;
-    background-image: url('kist_hero.jpg');
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    position: relative; /* Relative position for proper layering */
+    overflow: hidden; /* Ensures no overflow of the background images */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    color: white;
-    animation: slideBackground 10s linear infinite;
 }
 
-@keyframes slideBackground {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 0; }
+/* Background Slideshow Animation */
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateX(-50%); /* Center the background image */
+    z-index: -1; /* Behind the content */
+    animation: slideShow 30s linear infinite;
 }
+
+/* Keyframes for Sliding Background Animation */
+@keyframes slideShow {
+    0% { background-image: url('kist_hero.jpg'); }
+    20% { background-image: url('kist_fair.jpg'); }
+    50% { background-image: url('kist_orientation.jpg'); }
+    100% { background-image: url('sports.jpg'); }
+}
+
+/* Hero Text Box Styling */
+.hero-text-box {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 70%;
+    margin: 0 auto;
+    margin-top: 20px; /* Add spacing above the text box */
+    text-align: center;
+    color: white;
+    z-index: 1; /* Ensure text is above other elements */
+}
+
 
 .cta-button {
     background-color: #ff6b00;
@@ -199,35 +248,64 @@ body {
 
 /* About Us Page Styling */
 .introduction-title {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 2.5rem;
-    color: #0056b3;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-bottom: 3px solid #ff6b00;
-    display: inline-block;
+    text-align: center; /* Center the text */
+    margin: 20px auto; /* Add margin and auto-centers */
+    font-size: 2.5rem; /* Increase the font size */
+    color: #0056b3; /* Blue color for title */
+    text-transform: uppercase; /* Make the title uppercase */
+    letter-spacing: 2px; /* Add spacing between letters */
+    border-bottom: 3px solid #ff6b00; /* Add a bottom border for emphasis */
+    display: block; /* Make the title a block-level element */
+    width: fit-content; /* Set width to fit the content */
 }
 
-/* Academic Calendar Page */
+/* Academic Calendar Page Styling */
 .academic-calendar-box {
+    max-width: 600px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 30px;
     border: 2px solid #0077e6;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
-    width: 50%;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space between boxes */
+}
+
+.academic-calendar-box img.calendar-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.academic-calendar-box h2 {
+    color: #0056b3;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 .download-button {
     background-color: #ff6b00;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #e65c00;
+}
+
+.download-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
 }
 
 /* Centered Title Styling */
@@ -269,5 +347,397 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     color: #333;
+}
+
+/* Programs Page Styling */
+.program-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Yellow Heading Styling */
+.yellow-heading {
+    color: #ffcc00; /* Yellow color for headings */
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+/* Coordinator's View Section */
+.coordinator-section {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.coordinator-photo {
+    margin-bottom: 10px;
+}
+
+.coordinator-img {
+    max-width: 24%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Program Box Styling */
+.program-box {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #0077e6;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Contact Page Styling */
+.contact-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-title {
+    color: #0056b3;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+    margin: 20px 0;
+}
+
+.quick-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quick-links li {
+    margin: 10px 0;
+}
+
+.quick-links li a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 1rem;
+}
+/* Sticky Navbar on Scroll */
+.sticky-navbar {
+    z-index: 999; /* Lower than popup but above normal content */
+}
+
+/* Animation on Scroll */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contact Form Styling */
+.contact-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: #ff6b00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #e65c00;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Validation Message Styling */
+.form-message {
+    margin-bottom: 15px;
+    padding: 10px;
+    display: none; /* Initially hidden */
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px;
+    }
+
+    .contact-form button {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Popup Modal Styles */
+.popup-modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 10000; /* Set a higher z-index to appear over navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup content styling */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative; /* Ensure positioning for close button */
+    z-index: 10001; /* Ensure popup content is above everything */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px; /* Position it within the content box */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-button:hover {
+    color: #ff6b00;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ff6b00;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.2);
+}
+
+
+/* Stats Section Styling */
+.stats-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.stats-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.stats-image img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 40px;
+}
+
+.stat-box {
+    background: #fff;
+    border: 2px solid #0077e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.stat-box:hover {
+    transform: scale(1.05);
+}
+
+.stats-section.animate {
+    transform: translateY(20px);
+}
+
+/* Animation on Scroll */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-box {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Additional Styling for Footer and Stats on Smaller Screens */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .stats-section {
+        flex-direction: column;
+    }
+
+    .stat-box {
+        margin-bottom: 20px;
+    }
+}
+
+/* Educating Section Styling */
+.educate-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.educate-section h2 {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.educate-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Responsive Fix for Smaller Screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+        flex-direction: row;
+    }
+
+    .menu-icon {
+        font-size: 1.8rem;
+    }
+
+    .educate-section h2 {
+        font-size: 2rem;
+    }
+
+    .educate-section p {
+        font-size: 1rem;
+    }
 }
 
